@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HomeComponent } from "../home/home.component";
-import { CustomerComponent } from "../customer/customer.component";
-import { SupplierComponent } from "../supplier/supplier.component";
 import { RouterModule } from '@angular/router';
+import { SupplierComponent } from '../supplier/supplier.component';
 
 export const mainRoutes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'Customer', component: CustomerComponent },
-  { path: 'Supplier', component: SupplierComponent },
+  { path: 'Customer', loadChildren: '../customer/CustomerApp.Customermodule#CustomerAppCustomerModule'},
+  { path: 'Supplier', loadChildren: '../supplier/CustomerApp.Suppliermodule#CustomerAppSupplierModule' },
+
 ];
 
 @NgModule({
@@ -20,7 +19,7 @@ export const mainRoutes = [
   ],
   exports:[RouterModule]
 })
-export class CustomerAppRoutingModule {
+export class CustomerAppMainRoutingModule {
 
 }
 
