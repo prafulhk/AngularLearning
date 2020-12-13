@@ -7,14 +7,17 @@ import { Customer } from './customer.model';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
+   
   }
 
   customerModel:Customer=new Customer();
   customerModels:Array<Customer>=new Array<Customer>();
-  Add()
+  Add(): void
   {
     this.customerModels.push(this.customerModel);
   }
