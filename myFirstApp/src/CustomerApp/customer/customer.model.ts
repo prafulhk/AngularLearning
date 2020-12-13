@@ -10,11 +10,16 @@ export class Customer {
     {
         var formBuilder=new FormBuilder();
         this.formCustomerGroup=formBuilder.group({});
-        this.formCustomerGroup.addControl('customerNameControl',new FormControl('',Validators.required) )
-        var validationCollection=[];
-        validationCollection.push(Validators.required);
-        validationCollection.push(Validators.pattern("^[0-9]{4,4}$"))
-        this.formCustomerGroup.addControl('customerCodeControl',new FormControl('',Validators.compose(validationCollection)));
+        //Vaidation for customer code
+        var validationCollectionForCode=[];
+        validationCollectionForCode.push(Validators.required);
+        validationCollectionForCode.push(Validators.pattern("^[0-9]{4,4}$"))//main and max 4 digits only
+        this.formCustomerGroup.addControl('customerCodeControl',new FormControl('',Validators.compose(validationCollectionForCode)));
+        //Vaidation for customer name
+        var validationCollectionForName=[];
+        validationCollectionForName.push(Validators.required);
+        validationCollectionForName.push(Validators.pattern("[A-Za-z\\s]*"))//only charecters allowed
+        this.formCustomerGroup.addControl('customerNameControl',new FormControl('',Validators.compose(validationCollectionForName)));
 
 
     }

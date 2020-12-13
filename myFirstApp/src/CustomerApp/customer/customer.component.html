@@ -4,6 +4,11 @@
     Customer Amount :<input type="text" [(ngModel)]="customerModel.customerNumber" [ngModelOptions]="{standalone: true}"/><br>
     <input type="button"  [disabled]="!(customerModel.formCustomerGroup.valid)" (click)="Add()" value="ADD" /><br>
 </form>
+<div *ngIf="customerModel.formCustomerGroup.dirty" [hidden]="!(hasError('required','customerCodeControl'))">customer code is required</div>
+<div *ngIf="customerModel.formCustomerGroup.dirty" [hidden]="!(hasError('pattern','customerCodeControl'))">customer code should be of 4 digits</div>
+<div *ngIf="customerModel.formCustomerGroup.dirty" [hidden]="!(hasError('required','customerNameControl'))">customer name is required</div>
+<div *ngIf="customerModel.formCustomerGroup.dirty" [hidden]="!(hasError('pattern','customerNameControl'))">customer name is should be in charecters only</div>
+
 <table>
     <tr>
         <td>Customer Code</td>
