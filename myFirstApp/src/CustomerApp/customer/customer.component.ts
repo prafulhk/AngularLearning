@@ -17,7 +17,6 @@ export class CustomerComponent implements OnInit {
   Add()
   {
     this.customerModels.push(this.customerModel);
-    // this.customerModel=new Customer();
   }
 
 }
